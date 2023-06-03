@@ -22,10 +22,12 @@ pipeline {
         }
         stage('Push'){
             steps{
-                sshagent(['SHA256:YSvASGMnkStTe3ICOdGsUkiu0G3997tv0OCPN133jlM']) {
-                    git remote set-url origin https://github.com/isaaccuadrado/todo-list-aws.git
-                    sh 'git push origin master'
-                }
+                script { 
+                    sshagent(['SHA256:YSvASGMnkStTe3ICOdGsUkiu0G3997tv0OCPN133jlM']) {
+                        git remote set-url origin https://github.com/isaaccuadrado/todo-list-aws.git
+                        sh 'git push origin master'
+                    }
+                }    
             }
         }
         stage('Production'){
