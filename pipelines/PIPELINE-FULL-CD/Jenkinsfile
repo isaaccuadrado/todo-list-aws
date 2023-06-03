@@ -18,9 +18,8 @@ pipeline {
                     git checkout -b master origin/master
                     git merge develop
                 """, label: "Merging code to master"
-                script { 
-                    git remote set-url origin https://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@github.com/isaaccuadrado/todo-list-aws.git
-                    sh 'git push origin master'
+                sshagent(['github']) {
+                    sh "git push origin master"
                 }
             }
         }
