@@ -23,7 +23,7 @@ pipeline {
         stage('Push'){
             steps{
                 script { 
-                    sshagent(['SHA256:YSvASGMnkStTe3ICOdGsUkiu0G3997tv0OCPN133jlM']) {
+                    sshagent(['YSvASGMnkStTe3ICOdGsUkiu0G3997tv0OCPN133jlM']) {
                         git remote set-url origin https://github.com/isaaccuadrado/todo-list-aws.git
                         sh 'git push origin master'
                     }
