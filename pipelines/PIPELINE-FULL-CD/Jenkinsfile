@@ -18,6 +18,8 @@ pipeline {
                     git checkout -b master origin/master
                     git merge develop
                 """, label: "Merging code to master"
+            }
+            steps{
                 sshagent(['SHA256:YSvASGMnkStTe3ICOdGsUkiu0G3997tv0OCPN133jlM']) {
                     git remote set-url origin https://github.com/isaaccuadrado/todo-list-aws.git
                     sh 'git push origin master'
