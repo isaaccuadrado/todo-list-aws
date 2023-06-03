@@ -18,12 +18,10 @@ pipeline {
                     git checkout -b master origin/master
                     git merge develop
                 """, label: "Merging code to master"
-                sshagent(['github']) {
-                    sshagent(['git-credentials-id']) {
-                        sh "git push origin master"
-                    }
+                sshagent(['my-ssh-key']) {
+                    git remote set-url origin git@github.com:isaaccuadrado.af.ap@gmail.com/todo-list-aws.git
+                    sh 'git push origin master'
                 }
-
             }
         }
         stage('Production'){
