@@ -19,6 +19,8 @@ pipeline {
                     git merge develop
                 """, label: "Merging code to master"
                 sshagent(['github']) {
+                    hub remote set-url upstream https://$token:x-oauth-basic@github.com/$owner/$repo.git
+                    hub remote set-url origin https://$token:x-oauth-basic@github.com/$username/$repo.git
                     sh "git push origin master"
                 }
             }
