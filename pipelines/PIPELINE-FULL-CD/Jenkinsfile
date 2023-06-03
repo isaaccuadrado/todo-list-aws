@@ -25,6 +25,7 @@ pipeline {
                 script { 
                     git remote set-url origin https://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@github.com/isaaccuadrado.af.ap@gmail.com/todo-list-aws.git
                     sh 'git push origin master'
+                    echo 'Push Done'
                 }    
             }
         }
